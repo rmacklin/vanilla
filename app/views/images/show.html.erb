@@ -4,6 +4,12 @@
     <%= render(partial: 'image', locals: { image: @image }) %>
 </div>
 
+<ul>
+    <% @image.tags.each do |tag| %>
+        <li><%= tag %></li>
+    <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', images_path %>
