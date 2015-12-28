@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  uri: MyString
+appfolio:
+  url: http://www.appfolio.com/images/html/apm-logo-v2.png?1449706441
 
-two:
-  uri: MyString
+google:
+  url: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png
