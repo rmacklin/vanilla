@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Images</h1>
+<div class="image-list text-muted">
+  <div class="container">
 
-<div class="image_list">
-  <% @images.each do |image| %>
-    <%= link_to render(partial: 'image', locals: { image: image }), image %>
-  <% end %>
+    <div class="row">
+      <% @images.each do |image| %>
+        <%= render(partial: 'image', locals: { image: image }) %>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 
 <%= link_to 'New Image', new_image_path %>

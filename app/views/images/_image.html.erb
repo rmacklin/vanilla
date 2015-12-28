@@ -1,3 +1,9 @@
-<span class="image">
-    <%= image_tag image.url %>
-</span>
+<div class="card">
+  <%= link_to image_tag(image.url), image %>
+
+  <ul class="tag-list">
+    <% image.tags.each do |tag| %>
+        <li class="tag"><a href="#"><%= tag %></a></li>
+    <% end %>
+  </ul>
+</div>
