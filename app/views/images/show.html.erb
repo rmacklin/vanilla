@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+    <%= render(partial: 'image', locals: { image: @image }) %>
+</div>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', images_path %>
