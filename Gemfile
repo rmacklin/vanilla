@@ -53,6 +53,11 @@ group :production do
   gem 'rails_12factor'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'puma'
 gem 'rack-timeout'
+gem 'bootstrap', '~> 4.0.0.alpha3'
