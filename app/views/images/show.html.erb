@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Uri:</strong>
-  <%= @image.uri %>
+  <%= image_tag @image.uri %>
 </p>
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', images_path %>
