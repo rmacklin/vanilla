@@ -2,15 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image_list .image img {
-    max-width: 200px;
-    max-height: 200px;
+.card {
+  border: 1px solid;
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: .75rem;
+  text-align: center;
+  vertical-align: top;
 }
 
-.image_list a {
-    text-decoration: none;
+.card img {
+  margin-bottom: .75rem;
+  max-width: 100%;
 }
 
-.image_list a:hover {
-    background-color: transparent;
+.card-text {
+  font-size: 85%;
+}
+
+.image-list {
+  background-color: #f7f7f7;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+.image-list .card {
+  width: 350px;
+}
+
+.tag > a::before {
+  content: "#";
+}
+
+li.tag {
+  display: inline-block;
+}
+
+ul.tag-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
