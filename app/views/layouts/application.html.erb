@@ -35,8 +35,11 @@
     </div>
   </div>
 
-<p id="notice"><%= notice %></p>
-<%= yield %>
+  <% unless notice.nil? %>
+    <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
