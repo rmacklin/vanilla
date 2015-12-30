@@ -1,13 +1,3 @@
-<div class="image-list text-muted">
-  <div class="container">
-
-    <div class="row">
-      <% @images.each do |image| %>
-        <%= render(partial: 'image', locals: { image: image }) %>
-      <% end %>
-    </div>
-
-  </div>
-</div>
+<%= render partial: 'shared/image_list', locals: { images: @images } %>
 
 <%= link_to 'New Image', new_image_path %>

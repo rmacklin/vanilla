@@ -1,5 +1,5 @@
 <div>
-    <%= render(partial: 'image', locals: { image: @image }) %>
+  <%= render partial: 'shared/image', locals: { image: @image } %>
 </div>
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
