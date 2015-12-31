@@ -21,7 +21,8 @@ class TagsControllerTest < ActionController::TestCase
   end
 
   private
-    def create_image(url, tag_string)
-      image = Image.create(url: url, tag_list: tag_string)
-    end
+
+  def create_image(url, tag_string)
+    Image.create(url: url, tag_list: tag_string)
+  end
 end
