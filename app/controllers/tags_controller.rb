@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-
   before_action :set_tag, only: [:show]
 
   # GET /tags
@@ -16,7 +15,7 @@ class TagsController < ApplicationController
 
   private
 
-    def set_tag
-      @tag = ActsAsTaggableOn::Tag.find_by!(name: params[:name])
-    end
+  def set_tag
+    @tag = ActsAsTaggableOn::Tag.find_by!(name: params[:name])
+  end
 end
