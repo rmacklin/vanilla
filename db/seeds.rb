@@ -32,6 +32,8 @@ images = %w(https://media0.giphy.com/media/gwNs1Ga6F5RRK/200.gif
             https://media1.giphy.com/media/5O3k4fxKARpVS/200.gif
             https://media3.giphy.com/media/5truRldhJmx32/200.gif)
 
+tags = %w(apple banana cat dog)
+
 images.each do |url|
-  Image.create url: url
+  Image.create url: url, tag_list: tags.sample(rand(1..tags.size)).join(',')
 end

@@ -13,5 +13,4 @@ class ImageTest < ActiveSupport::TestCase
     image = Image.new url: 'http://google.com'
     assert image.valid?
   end
-
 end

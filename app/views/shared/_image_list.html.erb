@@ -1,0 +1,9 @@
+<div class="image-list text-muted">
+  <div class="container">
+    <div class="row">
+      <% image_list.each do |image| %>
+        <%= render partial: 'shared/image', object: image %>
+      <% end %>
+    </div>
+  </div>
+</div>

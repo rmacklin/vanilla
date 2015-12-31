@@ -3,7 +3,7 @@
 
   <ul class="tag-list">
     <% image.tags.each do |tag| %>
-        <li class="tag"><a href="#"><%= tag %></a></li>
+        <li class="tag"><%= link_to tag, tag_path(tag.name) %></li>
     <% end %>
   </ul>
 </div>
