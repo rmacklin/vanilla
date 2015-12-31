@@ -1,6 +1,5 @@
 # This migration comes from acts_as_taggable_on_engine (bboe combined)
 class ActsAsTaggableOnMigration < ActiveRecord::Migration
-
   def change
     create_table :tags do |t|
       t.string :name, null: false
@@ -28,5 +27,4 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration
               unique: true, name: 'taggings_idx'
     add_index :taggings, [:taggable_id, :taggable_type, :context]
   end
-
 end
