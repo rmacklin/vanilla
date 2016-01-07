@@ -5,12 +5,25 @@ class TagsControllerTest < ActionController::TestCase
     @images = []
     @images << create_image('http://foo.com', 'tag1, tag2')
     @images << create_image('http://bar.com', 'tag2')
+    @images << create_image('http://bar.com', 'other')
   end
 
   test 'should get index' do
     get :index
     assert_response :success
     assert_select '.tag_list li', @images.size
+  end
+
+  test 'should get empty filtered index' do
+    get :index, prefix: 'unmatched'
+    assert_response :success
+    assert_select '.tag_list li', 0
+  end
+
+  test 'should get filtered index' do
+    get :index, prefix: 't'
+    assert_response :success
+    assert_select '.tag_list li', 2
   end
 
   test 'should not show invalid tag' do

@@ -4,11 +4,15 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = ActsAsTaggableOn::Tag.order(:name).all
+    @tags = if params.include?(:prefix)
+      ActsAsTaggableOn::Tag.where('name LIKE :prefix', prefix: "#{params[:prefix]}%").order(:name)
+    else
+      ActsAsTaggableOn::Tag.order(:name).all
+    end
   end
 
-  # GET /images/1
-  # GET /images/1.json
+  # GET /tags/name
+  # GET /tags/name.json
   def show
     @images = Image.tagged_with @tag
   end
