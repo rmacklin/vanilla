@@ -1,5 +1,9 @@
 <%= simple_form_for @image, html: { novalidate: true } do |f| %>
   <%= f.input :url %>
-  <%= f.input :tag_list, label: 'Tags' %>
+  <%#= f.input :tag_list, label: 'Tags' %>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= image_tags_select(f, @image) %>
+  </div>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
