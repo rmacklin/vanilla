@@ -20,9 +20,17 @@ class TagsControllerTest < ActionController::TestCase
   end
 
   test 'should show tag' do
-    get :show, name: 'tag1'
+    image_1 = create_image('http://foo.com', 'tag4, tag2')
+    image_2 = create_image('http://foo.com', 'tag2, tag3')
+    image_3 = create_image('http://foo.com', 'tag4, tag3')
+
+    get :show, name: 'tag4'
     assert_response :success
-    assert_select '.card', 1
+
+    expected_image_ids = [image_1, image_3].map { |image| image.id.to_s }
+    assert_select '.card' do |elements|
+      assert_equal expected_image_ids, elements.map { |element| element['data-id'] }
+    end
   end
 
   private
