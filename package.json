@@ -1,0 +1,13 @@
+{
+    "name": "vanilla",
+    "license": "MIT",
+    "engines": {
+      "node": ">= 0.10"
+    },
+    "dependencies": {
+        "babel-preset-es2015": "^6.3.13",
+        "babelify": "^7.2.0",
+        "browserify": "~> 13.0.0",
+        "browserify-incremental": "^3.0.1"
+    }
+}
