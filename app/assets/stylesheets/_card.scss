@@ -1,3 +1,5 @@
+$card-footer-border-color: 1px solid rgba(0, 0, 0, 0.1);
+
 .card {
   background: $theme-light;
   border: none;
@@ -13,4 +15,24 @@
   background: #000;
   display: block;
   text-align: center;
+}
+
+.card__footer {
+  border-top: $card-footer-border-color;
+  display: flex;
+  line-height: 50px;
+}
+
+.card__footer-info {
+  flex: 1 1 0;
+}
+
+.card__footer-item {
+  color: #999;
+  flex-basis: 50px;
+  text-align: center;
+
+  & + & {
+    border-left: $card-footer-border-color;
+  }
 }

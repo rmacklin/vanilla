@@ -7,5 +7,14 @@
           <li class="tag-list__item"><%= link_to tag, tag_path(tag.name) %></li>
       <% end %>
     </ul>
+    <div class="card__footer">
+      <span class="card__footer-item card__footer-info"></span>
+      <a class="js-share-image card__footer-item" href="#">
+        <i class="oi" data-glyph="share-boxed"></i>
+      </a>
+      <a class="js-favorite-image card__footer-item" href="#">
+        <i class="oi" data-glyph="heart"></i>
+      </a>
+    </div>
   </div>
 </div>
