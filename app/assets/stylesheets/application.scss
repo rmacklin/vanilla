@@ -13,11 +13,14 @@
  */
 
 // Custom bootstrap variables must be set or import before bootstrap itself.
-$body-bg: #33373F;
-$border-radius: 2px;
-$enable-flex: true;
-
 $theme-light: #F8F7F0;
+$theme-dark: #33373F;
+$theme-accent: #F7B647;
+
+$body-bg: $theme-dark;
+$border-radius: 2px;
+$btn-primary-bg: $theme-accent;
+$enable-flex: true;
 
 @import "bootstrap";
 
