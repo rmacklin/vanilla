@@ -13,5 +13,6 @@
  */
 
 // Custom bootstrap variables must be set or import before bootstrap itself.
+$body-bg: #33373F;
+
 @import "bootstrap";
-@import "scaffolds";

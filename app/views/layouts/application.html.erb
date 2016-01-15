@@ -10,12 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <% if notice.present? %>
+      <div class="alert alert-success" role="alert"><%= notice %></div>
+    <% end %>
 
-  <% unless notice.nil? %>
-    <div class="alert alert-success" role="alert"><%= notice %></div>
-  <% end %>
-
-  <%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
