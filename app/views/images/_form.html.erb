@@ -1,5 +1,5 @@
-<%= simple_form_for @image do |f| %>
+<%= simple_form_for @image, html: { novalidate: true } do |f| %>
   <%= f.input :url %>
   <%= f.input :tag_list, label: 'Tags' %>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
