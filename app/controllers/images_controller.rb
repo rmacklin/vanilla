@@ -1,6 +1,12 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
+  class ShareImageForm
+    include ActiveModel::Model
+
+    attr_accessor :recipient_email, :message
+  end
+
   # GET /images
   # GET /images.json
   def index
@@ -59,6 +65,11 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def share
+    puts params.inspect
+    render text: 'we totally sent the email. totally.'
   end
 
   private

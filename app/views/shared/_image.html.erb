@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-6 col-lg-4">
-  <div class="card">
+  <div class="card" data-image-id="<%= image.id %>">
     <%= link_to image_tag(image.url, class: 'card__image'), image, class: 'card__image-container' %>
 
     <ul class="tag-list">
@@ -9,7 +9,7 @@
     </ul>
     <div class="card__footer">
       <span class="card__footer-item card__footer-info"></span>
-      <a class="js-share-image card__footer-item" href="#">
+      <a class="js-share-image card__footer-item" data-toggle="modal" data-target="#share_image_modal">
         <i class="oi" data-glyph="share-boxed"></i>
       </a>
       <a class="js-favorite-image card__footer-item" href="#">
