@@ -1,0 +1,15 @@
+<p>
+  Hey, your friend wanted to share this <%= @descriptor %> image with you:
+</p>
+<p>
+   <%= image_tag(@image.url) %>
+</p>
+<% if @message.present? %>
+  <p>
+    Your friend said:<br>
+    <i><%= @message %></i>
+  </p>
+<% end %>
+<p>
+  PRETTY SWEET, RIGHT? Check out <%= link_to 'Vanilla', root_url %> for more images like that.
+</p>

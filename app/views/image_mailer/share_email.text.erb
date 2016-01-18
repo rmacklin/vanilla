@@ -1,0 +1,10 @@
+Hey, your friend wanted to share this <%= @descriptor %> image with you:
+
+<%= @image.url %>
+
+<% if @message.present? %>
+  Your friend said:
+  <%= @message %>
+
+<% end %>
+PRETTY SWEET, RIGHT? Check out <%= root_url %> for more images like that.
