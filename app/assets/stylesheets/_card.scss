@@ -1,0 +1,16 @@
+.card {
+  background: $theme-light;
+  border: none;
+  color: $theme-dark;
+  overflow: hidden;
+}
+
+.card__image {
+  max-width: 100%;
+}
+
+.card__image-container {
+  background: #000;
+  display: block;
+  text-align: center;
+}

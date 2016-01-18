@@ -1,0 +1,14 @@
+.tag-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.tag-list__item {
+  display: inline-block;
+
+  & > a::before {
+    content: "#";
+  }
+}
+
