@@ -7,20 +7,7 @@
         </button>
         <h4 class="modal-title">Share this image</h4>
       </div>
-      <%= simple_form_for ImagesController::ShareImageForm.new,
-                          as: :share_form,
-                          remote: true,
-                          url: '#',
-                          html: { 'data-url-template': share_image_path('ID_PLACEHOLDER') } do |f| %>
-        <div class="modal-body">
-          <%= f.input :recipient_email %>
-          <%= f.input :message, as: :text %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit 'Send message', class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+      <%= render partial: 'share_form', object: share_form %>
     </div>
   </div>
 </div>

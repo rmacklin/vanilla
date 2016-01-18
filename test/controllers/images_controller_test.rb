@@ -70,4 +70,29 @@ class ImagesControllerTest < ActionController::TestCase
 
     assert_redirected_to images_path
   end
+
+  test 'should share image' do
+    assert_difference('ActionMailer::Base.deliveries.size', 1) do
+      xhr :post, :share, id: @image, share_form: {
+        recipient_email: 'bob@lob.law', message: 'foo'
+      }
+    end
+
+    assert_response :success
+
+    share_email = ActionMailer::Base.deliveries.last
+    assert_equal ['bob@lob.law'], share_email.to
+    assert_equal 'Check out this cool image (not a virus I swear)', share_email.subject
+  end
+
+  test 'should rerender form if recipient_email is invalid' do
+    assert_no_difference('ActionMailer::Base.deliveries.size') do
+      xhr :post, :share, id: @image, share_form: {
+        recipient_email: 'bob@lob', message: 'foo'
+      }
+    end
+
+    assert_response :unprocessable_entity
+    assert_includes JSON.parse(@response.body)['form_html'], 'is invalid'
+  end
 end

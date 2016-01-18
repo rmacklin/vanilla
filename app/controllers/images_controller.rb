@@ -1,10 +1,12 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :share]
 
   class ShareImageForm
     include ActiveModel::Model
 
     attr_accessor :recipient_email, :message
+
+    validates :recipient_email, presence: true, format: { with: /.+@.+\..+/i }
   end
 
   # GET /images
@@ -68,8 +70,21 @@ class ImagesController < ApplicationController
   end
 
   def share
-    puts params.inspect
-    render text: 'we totally sent the email. totally.'
+    share_params = params.require(:share_form).permit(:recipient_email, :message)
+    share_form = ShareImageForm.new(share_params)
+
+    if share_form.valid?
+      ImageMailer.share_email(
+        image: @image,
+        recipient_email: share_form.recipient_email,
+        message: share_form.message
+      ).deliver_now
+
+      head :ok
+    else
+      form_html = render_to_string(partial: 'share_form', object: share_form)
+      render json: { form_html: form_html }, status: :unprocessable_entity
+    end
   end
 
   private
