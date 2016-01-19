@@ -7,6 +7,9 @@
         "LANG": {
             "required": true
         },
+        "NODE_ENV": {
+            "required": true
+        },
         "RACK_ENV": {
             "required": true
         },
@@ -22,5 +25,13 @@
     },
     "addons": [
         "heroku-postgresql"
+    ],
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+        },
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-ruby"
+        }
     ]
 }
