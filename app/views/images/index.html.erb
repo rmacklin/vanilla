@@ -3,3 +3,10 @@
 </p>
 
 <%= render partial: 'shared/image_list', object: @images %>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'views/images/index/index' %>
+  <script>
+    ImagesIndexView.init();
+  </script>
+<% end %>
