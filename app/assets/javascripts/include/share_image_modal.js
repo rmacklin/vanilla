@@ -3,7 +3,8 @@ import $ from 'jquery';
 const ShareImageModal = {
   init() {
     const $modal = $('#share_image_modal')
-        , UNPROCESSABLE_ENTITY = 422;
+        , UNPROCESSABLE_ENTITY = 422
+        , NOT_FOUND = 404;
 
     const successAlert = `
       <div class="alert alert-success alert-dismissible fade in" role="alert">
@@ -30,6 +31,9 @@ const ShareImageModal = {
     $modal.on('ajax:error', (event, xhr) => {
       if (xhr.status === UNPROCESSABLE_ENTITY) {
         $modal.find('form').replaceWith(xhr.responseJSON.form_html);
+      } else if (xhr.status === NOT_FOUND) {
+        alert("Sorry, that image has been deleted so it cannot be shared.");
+        $modal.modal('hide');
       } else {
         alert("We're sorry, but something went wrong. Please try again.");
       }
