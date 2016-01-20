@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'signup'  => 'users#new'
+
   resources :images do
     member do
       post :share
