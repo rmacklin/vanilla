@@ -95,4 +95,14 @@ class ImagesControllerTest < ActionController::TestCase
     assert_response :unprocessable_entity
     assert_includes JSON.parse(@response.body)['form_html'], 'is invalid'
   end
+
+  test 'should respond with 404 if image to share does not exist' do
+    assert_no_difference('ActionMailer::Base.deliveries.size') do
+      xhr :post, :share, id: -1, share_form: {
+        recipient_email: 'bob@lob.law', message: 'foo'
+      }
+    end
+
+    assert_response :not_found
+  end
 end

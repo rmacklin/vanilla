@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy, :share]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   class ShareImageForm
     include ActiveModel::Model
 
@@ -97,5 +99,14 @@ class ImagesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_params
     params.require(:image).permit(:tag_list, :url)
+  end
+
+  def record_not_found(exception)
+    if request.xhr?
+      head :not_found
+    else
+      # reraise the exception to use the standard 404 page
+      raise exception
+    end
   end
 end
