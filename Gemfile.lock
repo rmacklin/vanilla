@@ -47,6 +47,7 @@ GEM
     autoprefixer-rails (6.2.2)
       execjs
       json
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap (4.0.0.alpha3)
@@ -208,6 +209,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
+  bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha3)
   browserify-rails
   byebug
