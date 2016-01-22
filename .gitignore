@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Don't check in node_modules (instead use shrinkwrap to lock down versions)
+node_modules
+
 # Ignore RubyMine files
 .idea
 
